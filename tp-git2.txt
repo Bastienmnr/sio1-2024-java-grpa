@@ -1,0 +1,110 @@
+-Faire un fork du dépôt https://github.com/rose-line/sio1-2024-java-grpa (pas par commande Git, c'est sur l'interface GitHub)
+
+-Quelle est la différence entre un fork et un clonage ?
+
+>la différence est qu'on modifie pas directement le dêpot mais une copie de celui-ci.
+
+-Indiquer dans quelles circonstances on voudrait forker et/ou cloner un dépôt
+
+>on fork lorsque l'ont veut prendre des précautions quand au dêpot que l'on utilise afin de ne pas le modifier directement
+alors qu'un clonage prend en compte des responsabilité sur le dêpot d'origine.
+
+-On veut maintenant envoyer cette modification vers le dépôt distant
+
+    Il faut d'abord faire un add/commit local
+    Puis utiliser la commande qui « pousse » les modifs sur le dépôt GitHub (push)
+    Vérifier directement sur GitHub que le push a bien fonctionné
+
+>c'est le cas
+
+
+-Trouver la commande qui affiche le nom du ou des dépôt(s) distant(s) relié(s) avec le dépôt local : cela permet de savoir 
+si le dépôt courant est synchronisé avec un dépôt en ligne ou non
+
+>git remote 
+
+
+-Merge en local puis push :
+
+    -Créer une branche locale bugfix1, se déplacer dessus, créer un nouveau fichier ok.java à la racine du dépôt
+
+>git branch bugfix1 
+>git checkout bugfix 1
+>touch ok.java
+
+    -Ajouter ok.java à l'index et faire un commit
+>git add .
+>git commit -m "ajout bugfix1"
+
+    -Retourner sur master, créer le fichier ajout.java, ajouter à l'index et commit
+    -Fusionner la branche bugfix1 dans la branche master
+    -Afficher le log des commits ; noter les emplacements des trois branches différentes, en local et en remote
+
+
+    -Faire un push
+    -Refarire un affichage du log ; origin/master a bougé : que représente cette branche ?
+
+Les branches ont origin/master et origin/head ont bougé, 
+ces branches origins correspondent au dépot distant savoir où il en est dans les commit, lorsqu'on push ces branches origin
+se mettent à jour en remontant.
+
+-Étudier le résultat sur GitHub, en examinant commits et branches (bouton drop-down sur la page du dépôt pour voir les 
+branches) : qu'est-ce qui est différent de la version locale ?
+
+>Il n'y a qu'une branche master .
+
+
+Le bug est corrigé et intégré ; que doit-on faire de la branche bugfix1 maintenant ?
+
+-On peut la supprimer
+
+Supposons que l'on veuille effectivement publier sur le remote une branche sur laquelle on travaille (pour sauvegarde ou pour que d'autres puissent l'utiliser)
+
+    Créer une nouvelle branche partage
+    Aller sur la branche
+    Ajouter un fichier partage.md
+    L'inclure dans l'index
+    Faire un commit
+    Push
+    Que se passe-t-il ?
+
+> il nous demande de confirmer par la création d'une branche partage sur le remote distant car elle n'existe pas.
+
+-Exécuter la bonne commande pour sauvegarder la branche sur le remote
+
+>git push --set-upstream origin partage
+
+> la branche apparait bien sur github
+
+
+-En discutant de la pull request, on se rend compte que certaines choses devraient être modifiées
+
+    Repartir en local pour effectuer une modification sur partage.md et ajouter precision.md
+    Commit des deux modifs
+    Push
+    Observer la pull request : que s'est-il passé ?
+
+> On peut voir le nouveau commit dans l'interface du pull request
+
+
+-Travailler en collaboration sur GitHub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
